@@ -2,7 +2,7 @@
 CC = cc
 
 # Name of the executable program
-NAME = minibash
+NAME = bashy
 
 # Paths for the Readline library
 READLINE_L = ~/.brew/opt/readline/lib

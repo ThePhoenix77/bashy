@@ -1,4 +1,4 @@
-# Bashy — minibash
+# Bashy — bashy
 
 **Bashy** is a fully featured Unix shell written in C, modelled after GNU Bash. It implements a complete pipeline from interactive input reading through lexing, parsing, variable expansion, redirection and process execution, including a built-in suite of seven commands and robust signal handling.
 
@@ -52,7 +52,7 @@
 
 | Feature | Description |
 |---|---|
-| Interactive prompt | `minibash-1.0$` with GNU Readline support |
+| Interactive prompt | `bashy$` with GNU Readline support |
 | Command history | Persistent history saved to `~/.bash_history` |
 | External commands | Searches `PATH` to execute any binary |
 | Built-in commands | `echo`, `cd`, `pwd`, `env`, `export`, `unset`, `exit` |
@@ -340,7 +340,7 @@ typedef struct s_expand_list {
 
 ### 1 — Input Reading
 
-`get_line()` uses GNU `readline` to display `minibash-1.0$` and read a line. History is loaded from `~/.bash_history` at startup and written back on exit. Empty and whitespace-only lines are silently skipped by `check_valid_in`. A `NULL` return from `readline` (EOF / `Ctrl+D`) triggers a clean exit.
+`get_line()` uses GNU `readline` to display `bashy$` and read a line. History is loaded from `~/.bash_history` at startup and written back on exit. Empty and whitespace-only lines are silently skipped by `check_valid_in`. A `NULL` return from `readline` (EOF / `Ctrl+D`) triggers a clean exit.
 
 ### 2 — Lexing / Tokenisation
 
@@ -355,8 +355,8 @@ Each operator (`|`, `>`, `>>`, `<`, `<<`) is identified by `check_operator()` / 
 ### 3 — Syntax Checking
 
 `check_syntax()` walks the token list and rejects:
-- Unclosed single or double quotes → `minibash: syntax error: unexpected end of file.`
-- Consecutive or dangling operators (e.g. `| |`, `> |`, trailing `|`) → `minibash: syntax error near unexpected token '…'`
+- Unclosed single or double quotes → `bashy: syntax error: unexpected end of file.`
+- Consecutive or dangling operators (e.g. `| |`, `> |`, trailing `|`) → `bashy: syntax error near unexpected token '…'`
 
 If more here-documents appear in a single command than the system limit allows, `check_num_heredoc()` prints an error and exits with status `2`.
 
@@ -599,9 +599,9 @@ On startup, `shell_level()` locates `SHLVL` in the environment and increments it
 
 | Scenario | Behaviour |
 |---|---|
-| Unclosed quote | `minibash: syntax error: unexpected end of file.` → exit status 2 |
-| Bad operator (e.g. `\|\|`, trailing `\|`) | `minibash: syntax error near unexpected token '…'` |
-| Too many here-documents | `minibash-1.0$: maximum here-document count exceeded` → exits shell |
+| Unclosed quote | `bashy: syntax error: unexpected end of file.` → exit status 2 |
+| Bad operator (e.g. `\|\|`, trailing `\|`) | `bashy: syntax error near unexpected token '…'` |
+| Too many here-documents | `bashy$: maximum here-document count exceeded` → exits shell |
 | Command not found | `minishell: <cmd>: command not found` → exit status 127 |
 | Ambiguous redirection | Error printed to stderr → exit status 1 |
 | `cd` with no `HOME` | `cd: HOME not set` → exit status 1 |
@@ -655,46 +655,46 @@ make fclean
 make re
 ```
 
-The resulting executable is named **`minibash`**.
+The resulting executable is named **`bashy`**.
 
 ---
 
 ## Usage
 
 ```bash
-./minibash
+./bashy
 ```
 
 You will see the prompt:
 
 ```
-minibash-1.0$
+bashy$
 ```
 
 Type any command and press **Enter**. Use **↑** / **↓** to navigate command history. Press **Ctrl+D** or type `exit` to leave the shell.
 
 ```bash
-minibash-1.0$ echo "Hello, World!"
+bashy$ echo "Hello, World!"
 Hello, World!
 
-minibash-1.0$ export GREETING="Hi"
-minibash-1.0$ echo $GREETING
+bashy$ export GREETING="Hi"
+bashy$ echo $GREETING
 Hi
 
-minibash-1.0$ ls -la | grep ".c" | wc -l
+bashy$ ls -la | grep ".c" | wc -l
       3
 
-minibash-1.0$ cat << EOF
+bashy$ cat << EOF
 > line one
 > line two
 > EOF
 line one
 line two
 
-minibash-1.0$ cd /tmp && pwd
+bashy$ cd /tmp && pwd
 /tmp
 
-minibash-1.0$ exit 0
+bashy$ exit 0
 ```
 
 ---

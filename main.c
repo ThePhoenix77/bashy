@@ -11,7 +11,7 @@ void get_line(t_global *global)
     while (1) // Infinite loop to continuously get user input
     {
         // Prompt user for input and read a line
-        global->line_input = readline("minibash-1.0$ ");
+        global->line_input = readline("bashy$ ");
 
         // Validate the user input; if valid, continue to next iteration
         if (check_valid_in(global) == SUCCESS)
@@ -23,7 +23,7 @@ void get_line(t_global *global)
             free_memory(global); // Free allocated memory for the current context
             if (global->env_list) // If there are environment variables, free them
                 free_env_list(&global->env_list);
-            write(1, "\x1B[Fminibash-1.0$ exit\n", 24); // Print exit message
+            write(1, "\x1B[Fbashy$ exit\n", 15); // Print exit message
             g_exit_status = 0; // Reset exit status
             break; // Exit the loop
         }

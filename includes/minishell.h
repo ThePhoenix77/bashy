@@ -16,9 +16,9 @@
 # define META_CHARS " \t\n\'\"><|"
 
 /*~~~~~~~~~~~Syntax Error~~~~~~~~~~~~*/
-# define UNCLOSED_QUOTE "minibash: syntax error: unexpected end of file.\n" // Error for unclosed quotes
-# define ERROR "minibash: syntax error near unexpected token `" // General syntax error message
-# define ERR_MANY_HERDOCS "minibash-1.0$: maximum here-document count \
+# define UNCLOSED_QUOTE "bashy: syntax error: unexpected end of file.\n" // Error for unclosed quotes
+# define ERROR "bashy: syntax error near unexpected token `" // General syntax error message
+# define ERR_MANY_HERDOCS "bashy$: maximum here-document count \
 exceeded\n" // Limit exceeded for here-documents
 
 /*~~~~~~~~~~~~~Execution Errors~~~~~~~~~~*/

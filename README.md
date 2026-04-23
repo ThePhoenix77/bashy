@@ -1,4 +1,4 @@
-# Bashy — bashy
+# Bashy
 
 **Bashy** is a fully featured Unix shell written in C, modelled after GNU Bash. It implements a complete pipeline from interactive input reading through lexing, parsing, variable expansion, redirection and process execution, including a built-in suite of seven commands and robust signal handling.
 

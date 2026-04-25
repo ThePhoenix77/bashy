@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Global variable to store the exit status of the shell
 int g_exit_status = 0;
@@ -95,6 +95,8 @@ int main(int arc, char **arv, char **env)
 
     arc = 0; // Unused parameter
     arv = NULL; // Unused parameter
+    (void)arc;
+    (void)*arv;
     if (isatty(0) == 0) // Check if the input is from a terminal
         return (-1); // Return error if not
 

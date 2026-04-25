@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 /**
  * get_word - Extracts a word from the input line.

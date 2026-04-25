@@ -1,9 +1,9 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Handle fork failure by printing an error and closing the pipe
 void	fork_failed(t_global *global)
 {
-	perror("minishell: fork"); // Print fork error
+	perror("bashy: fork"); // Print fork error
 	close_pipe(global->pipe);   // Close the pipe
 }
 
@@ -27,7 +27,7 @@ int	execute_pipe(t_global *global, t_tree *root)
 	pid_t	child2; // Process ID for the second child
 
 	if (pipe(global->pipe) < 0) // Create a pipe
-		return (perror("minishell: pipe:"), -1); // Handle pipe creation error
+		return (perror("bashy: pipe:"), -1); // Handle pipe creation error
 	child1 = fork(); // Fork the first child
 	if (child1 == -1) // Check for fork failure
 		return (fork_failed(global), -1);

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "bashy.h"
 
 void	add_exp_list(t_global *global, int len, char **line)
 {

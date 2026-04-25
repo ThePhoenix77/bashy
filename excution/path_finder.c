@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Free an array of strings (tab)
 void	free_tab(char **tab)
@@ -61,12 +61,12 @@ char	*get_the_path(t_global *global)
 // Get the full path for the given command
 char	*get_path(char *cmd, t_global *global)
 {
-	int		i;
+	// int		i;
 	char	**split;
 	char	*path;
 	char	*path_env;
 
-	i = 0;
+	// i = 0;
 	if (ft_strchr(cmd, '/')) // Check if the command has a path
 		return (ft_strdup(cmd)); // Return the command itself if it has a path
 	path_env = get_the_path(global); // Get the PATH environment variable

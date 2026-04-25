@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Function to handle the extraction of operators from the input line.
 // This function checks for whitespace and processes operators accordingly.

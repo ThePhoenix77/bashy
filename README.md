@@ -77,7 +77,7 @@ bashy/
 ├── main.c                  # Entry point, main loop, start() dispatcher
 ├── Makefile
 ├── includes/
-│   ├── minishell.h         # All function prototypes, macros, and constants
+│   ├── bashy.h         # All function prototypes, macros, and constants
 │   └── structs.h           # All typedef'd structs and enums
 ├── builtins/
 │   ├── ft_echo.c           # echo built-in
@@ -602,7 +602,7 @@ On startup, `shell_level()` locates `SHLVL` in the environment and increments it
 | Unclosed quote | `bashy: syntax error: unexpected end of file.` → exit status 2 |
 | Bad operator (e.g. `\|\|`, trailing `\|`) | `bashy: syntax error near unexpected token '…'` |
 | Too many here-documents | `bashy$: maximum here-document count exceeded` → exits shell |
-| Command not found | `minishell: <cmd>: command not found` → exit status 127 |
+| Command not found | `bashy: <cmd>: command not found` → exit status 127 |
 | Ambiguous redirection | Error printed to stderr → exit status 1 |
 | `cd` with no `HOME` | `cd: HOME not set` → exit status 1 |
 | `cd -` with no `OLDPWD` | `cd: OLDPWD not set` → exit status 1 |

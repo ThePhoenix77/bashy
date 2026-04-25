@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "bashy.h"
 
 void	expand_exit_status(t_global *global, t_expand_list *node)
 {

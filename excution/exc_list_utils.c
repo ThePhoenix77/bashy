@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Create a new execution list node
 t_exc_list	*new_exc_spot(t_global *global, t_type_node type)

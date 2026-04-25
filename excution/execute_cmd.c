@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Check if the command is a built-in command and execute it
 int	check_builtins(t_global *global, char **cmd)
@@ -28,12 +28,12 @@ void	check_file_type(char **cmd)
 
 	// Get file status
 	if (lstat(cmd[0], &file_struct) == -1)
-		(perror("minishell: lstat"), exit(1)); // Error handling for lstat
+		(perror("bashy: lstat"), exit(1)); // Error handling for lstat
 
 	// Check if it's a directory
 	if (S_ISDIR(file_struct.st_mode))
 	{
-		ft_putstr_fd("minishell: ", 2);
+		ft_putstr_fd("bashy: ", 2);
 		ft_putstr_fd(cmd[0], 2);
 		ft_putstr_fd(": is a directory\n", 2);
 		exit(126); // Exit with status indicating command is a directory
@@ -42,7 +42,7 @@ void	check_file_type(char **cmd)
 	// Check if the file is executable
 	if (!(file_struct.st_mode & S_IXUSR))
 	{
-		ft_putstr_fd("minishell: ", 2);
+		ft_putstr_fd("bashy: ", 2);
 		ft_putstr_fd(cmd[0], 2);
 		ft_putstr_fd(": Permission denied\n", 2);
 		exit(126); // Exit with status indicating permission denied
@@ -69,7 +69,7 @@ int	execute_cmd(t_global *global, char **cmd, t_type_node type)
 	// Check if the command file exists
 	if (access(cmd[0], F_OK) == -1)
 	{
-		ft_putstr_fd("minishell: ", 2);
+		ft_putstr_fd("bashy: ", 2);
 		(perror(cmd[0]), exit(127)); // Print error and exit with command not found status
 	}
 
@@ -77,6 +77,6 @@ int	execute_cmd(t_global *global, char **cmd, t_type_node type)
 
 	// Execute the command using execve
 	if (execve(cmd[0], cmd, global->myenv) == -1)
-		perror("minishell: execve:"); // Print error if execve fails
+		perror("bashy: execve:"); // Print error if execve fails
 	exit(1); // Exit if execve fails
 }

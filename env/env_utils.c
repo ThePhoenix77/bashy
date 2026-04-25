@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 /**
  * new_env_node - Creates a new environment variable node.

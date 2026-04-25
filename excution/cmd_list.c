@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Create a new command argument node
 t_cmd_args	*new_cmd_element(t_global *global, char *content)

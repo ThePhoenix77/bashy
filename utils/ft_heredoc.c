@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Function to buffer lines from the heredoc into global content.
 void	buff_heredoc(t_global *global, char *line)

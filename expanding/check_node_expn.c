@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 /**
  * find_dollar - Checks if the content of the node contains a valid `$` expansion.

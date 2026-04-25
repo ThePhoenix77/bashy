@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Signal handler for SIGINT and SIGQUIT
 void	signals_handler(int sig)
@@ -7,7 +7,6 @@ void	signals_handler(int sig)
 	{
 		printf("\n"); // Print a newline
 		rl_on_new_line(); // Move to a new line in the readline buffer
-		rl_replace_line("", 0); // Clear the current line
 		rl_redisplay(); // Redisplay the prompt
 		g_exit_status = 1; // Set the global exit status to 1
 	}
@@ -36,12 +35,11 @@ void	mask_and_catch_signals(t_sigaction *sig)
 	sigaction(SIGQUIT, sig, NULL); // Set the action for SIGQUIT
 }
 
-// Initialize the signal actions for the minishell
+// Initialize the signal actions for the bashy
 void	init_sigaction(void)
 {
 	t_sigaction	sig; // Declare a sigaction struct
 
 	ft_memset(&sig, 0, sizeof(sig)); // Zero out the struct
 	mask_and_catch_signals(&sig); // Set up the signal handlers
-	rl_catch_signals = 0; // Disable default signal handling in readline
 }

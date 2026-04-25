@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 /**
  * ft_atoi_shlvl - Converts a string to a long integer for the SHLVL value.
@@ -71,7 +71,7 @@ int	check_shell_level(t_env_list **node, int num)
 		num = 0;
 	else if (num > 1000)  // Reset SHLVL if it exceeds 1000 and issue a warning
 	{
-		ft_putstr_fd("minishell: warning: shell level (", 2);
+		ft_putstr_fd("bashy: warning: shell level (", 2);
 		ft_putnbr_fd(num, 2);
 		ft_putstr_fd(") too high, resetting to 1\n", 2);
 		num = 1;

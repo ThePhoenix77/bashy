@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Determine the exit status based on the status of a child process
 int	exit_status(int status, t_global *global)

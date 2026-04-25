@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 /**
  * Creates a new content string in the format "key=value".

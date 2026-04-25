@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Function to copy a string from src to dest.
 // Ensures that dest is properly null-terminated after the copy.

@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Add a new node to the pre_head list with the current global content
 void	add_pre_list(t_global *global)
@@ -98,10 +98,10 @@ int	join_cont(t_global *global, t_lst *tmp)
 void	bulid_list_exc(t_global *global)
 {
 	t_lst		*mv_node; // Pointer to traverse the pre_head list
-	t_lst		*save; // Pointer to save the initial position of mv_node
+	// t_lst		*save; // Pointer to save the initial position of mv_node
 
 	mv_node = global->pre_head; // Initialize mv_node to the head of pre_head
-	save = global->pre_head; // Save the initial position of mv_node
+	// save = global->pre_head; // Save the initial position of mv_node
 	while (mv_node) // Iterate through the pre_head list
 	{
 		if (mv_node->type == PIPE) // If the node type is PIPE, skip to the next node

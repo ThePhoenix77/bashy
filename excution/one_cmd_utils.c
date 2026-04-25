@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Handle redirection for a single node in the execution list
 bool	redir_one_node(t_global *global, t_exc_list **exc_node)
@@ -56,13 +56,13 @@ void	handle_redir_once(t_global *global)
 			if (global->root->fd.in > 0) // If there is a valid input FD
 			{
 				if (dup2(global->root->fd.in, 0) < 0) // Redirect input
-					perror("minishell : dup2:"); // Handle error
+					perror("bashy : dup2:"); // Handle error
 				close(global->root->fd.in); // Close the input FD
 			}
 			if (global->root->fd.out > 0) // If there is a valid output FD
 			{
 				if (dup2(global->root->fd.out, 1) < 0) // Redirect output
-					perror("minishell : dup2:"); // Handle error
+					perror("bashy : dup2:"); // Handle error
 				close(global->root->fd.out); // Close the output FD
 			}
 		}

@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 /* This function counts the number of strings in the 'args' array,
    starting from index 1, and returns the count. It leverages a simple

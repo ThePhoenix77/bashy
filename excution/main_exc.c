@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Join consecutive nodes of type ENV or WORD into global->content
 bool	join_nodes(t_global *global, t_lst **node)
@@ -57,7 +57,7 @@ void	prepere_list(t_global *global)
 // Print an error message when a command is not found
 void	cmd_msg(char *cmd)
 {
-	ft_putstr_fd("minishell: ", 2); // Print the prefix
+	ft_putstr_fd("bashy: ", 2); // Print the prefix
 	ft_putstr_fd(cmd, 2); // Print the command
 	ft_putstr_fd(ERR_CMD_NF, 2); // Print the command not found error
 }

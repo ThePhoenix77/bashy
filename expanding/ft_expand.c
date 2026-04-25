@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "bashy.h"
 
 void	check_bf_doll(t_global *global, t_lst **exp_node)
 {

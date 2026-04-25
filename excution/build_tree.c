@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Create a new tree node and initialize its members
 t_tree	*new_tree_node(t_global *global, t_type_node type)

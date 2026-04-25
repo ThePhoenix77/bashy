@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 /* Retrieves the value of an environment variable from a string formatted as 
    "key=value". It searches for the '=' character, returning the substring 

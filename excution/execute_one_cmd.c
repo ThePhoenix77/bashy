@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Create a child process to execute a command
 bool	create_child(t_global *global, char **cmd_ars)
@@ -7,7 +7,7 @@ bool	create_child(t_global *global, char **cmd_ars)
 
 	child = fork(); // Create a new process
 	if (child < 0)
-		return (perror("minishell: fork:"), FAILURE); // Handle fork failure
+		return (perror("bashy: fork:"), FAILURE); // Handle fork failure
 
 	sig_ign(); // Ignore signals in the parent
 	save_tty(global); // Save the terminal state for the global context

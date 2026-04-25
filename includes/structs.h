@@ -1,6 +1,6 @@
 /*
  * Header file defining various structures and enums used throughout the 
- * Minishell project. These structures facilitate command processing, 
+ * bashy project. These structures facilitate command processing, 
  * environment handling, input/output redirection, and syntax parsing. 
  * Consistent use of types and clear struct definitions will help maintain 
  * a readable and maintainable codebase.

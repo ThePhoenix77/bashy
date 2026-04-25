@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 /* Updates the value of an existing environmental variable. It constructs
    a new content string in the format "name=new_val", ensuring to properly 

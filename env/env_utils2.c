@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 /**
  * get_var_env - Retrieves an environment variable node by its name.
@@ -92,7 +92,7 @@ bool	update_env(t_env_list **env, char *new_val)
  * This function is called when the environment is empty (i.e., no existing
  * environment variables). It sets up a minimal set of default environment
  * variables, including "PWD" (current working directory), "SHLVL=0" (shell
- * level), and "_=./minishell" (last executed command). These variables are
+ * level), and "_=./bashy" (last executed command). These variables are
  * added to the environment list.
  * 
  * Return: SUCCESS on successful initialization, FAILURE on error.
@@ -124,7 +124,7 @@ bool	empty_env(t_global *global)
 	add_env_back(&global->env_list, new);  // Add the SHLVL node to the environment list
 
 	// Create and add the last executed command variable ("_")
-	new = new_env_node(ft_strdup("_=./minishell"));
+	new = new_env_node(ft_strdup("_=./bashy"));
 	if (!new || !new->content)
 		return (FAILURE);
 	add_env_back(&global->env_list, new);  // Add the "_" node to the environment list

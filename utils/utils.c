@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Initialize global structure with default values and environment variables
 void	init_global(t_global *global, char **env)

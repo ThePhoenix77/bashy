@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 /**
  * check_af_sp - Checks if there are only spaces after a redirection symbol.
@@ -45,7 +45,7 @@ bool	check_af_sp(char *inp)
  * @node: Pointer to the node in the token list where the error occurred.
  * 
  * This function handles ambiguous redirection errors, updating the content of 
- * the token node with an error message ("minishell: ambiguous redirect") and 
+ * the token node with an error message ("bashy: ambiguous redirect") and 
  * setting its type to ERROR_DIS.
  */
 void	set_error(t_global *global, t_lst *node)
@@ -55,7 +55,7 @@ void	set_error(t_global *global, t_lst *node)
 		free(node->content);
 
 	// Set the content to an error message indicating ambiguous redirect
-	node->content = ft_strdup("minishell: ambiguous redirect");
+	node->content = ft_strdup("bashy: ambiguous redirect");
 	if (!node->content)
 		malloc_failed(global); // Handle memory allocation failure
 

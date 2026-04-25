@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Function to create a new node for the linked list.
 t_lst	*new_node(t_global *global)

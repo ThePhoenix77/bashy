@@ -1,13 +1,13 @@
 /* 
- * Header file for the Minishell project, defining constants, function prototypes, 
+ * Header file for the bashy project, defining constants, function prototypes, 
  * and includes necessary for shell operations. Well-structured organization ensures 
  * maintainability and readability for both new and existing developers. Consider 
  * utilizing self-descriptive function names and adding more specific comments for 
  * clarity on complex functions.
  */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#ifndef BASHY_H
+# define BASHY_H
 
 /* Error handling constants to manage process flow clearly */
 # define SUCCESS true

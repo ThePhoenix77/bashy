@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Function to count the number of HERE_DOC nodes in the linked list.
 // Returns FAILURE if the count exceeds 16, otherwise SUCCESS.
@@ -91,9 +91,6 @@ bool	check_syntax(t_global *global)
 void	open_heredoc_sy(char *eof)
 {
 	char	*read;
-	int		len;
-
-	len = ft_strlen(eof);
 	// Infinite loop to read user input until EOF is matched
 	while (1)
 	{

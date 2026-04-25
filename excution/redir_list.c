@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 /**
  * new_vertex - Creates a new redirection node based on the current token.

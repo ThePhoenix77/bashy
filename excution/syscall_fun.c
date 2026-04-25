@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 /**
  * ft_dup2 - Wrapper around the `dup2` system call to duplicate file descriptors.
@@ -15,7 +15,7 @@ bool	ft_dup2(int fd1, int fd2)
 {
 	// Perform the dup2 system call and check for failure
 	if (dup2(fd1, fd2) < 0)
-		return (perror("minishell: dup2:"), FAILURE);
+		return (perror("bashy: dup2:"), FAILURE);
 
 	// Close the original file descriptor after duplication
 	close(fd1);
@@ -41,7 +41,7 @@ int	ft_dup(int fd1, int fd2)
 
 	// Check if the duplication failed
 	if (fd1 < 0)
-		return (perror("minishell: dup:"), -1);
+		return (perror("bashy: dup:"), -1);
 
 	return (fd1);
 }
@@ -59,7 +59,7 @@ bool	ft_close(int fd)
 {
 	// Perform the close system call and check for failure
 	if (close(fd) < 0)
-		return (perror("minishell: close:"), FAILURE);
+		return (perror("bashy: close:"), FAILURE);
 
 	return (SUCCESS);
 }

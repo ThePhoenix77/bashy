@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "bashy.h"
 
 void	transform_env(t_global *global)
 {

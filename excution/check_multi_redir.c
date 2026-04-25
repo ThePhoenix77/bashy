@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Create a new redirection node by copying an existing one
 t_redir	*new_coipe_list(t_redir *node)
@@ -29,19 +29,19 @@ bool	open_redir_files(t_redir *node)
 	{
 		fd = open(node->file_name, O_WRONLY | O_CREAT | O_TRUNC, 0644); // Open file for output
 		if (fd < 0)
-			return (perror("minishell: open"), FAILURE); // Handle open error
+			return (perror("bashy: open"), FAILURE); // Handle open error
 	}
 	else if (node->type == DOUBLE_QUOTE)
 	{
 		fd = open(node->file_name, O_WRONLY | O_CREAT | O_APPEND, 0644); // Open file for appending
 		if (fd < 0)
-			return (perror("minishell: open"), FAILURE);
+			return (perror("bashy: open"), FAILURE);
 	}
 	else if (node->type == REDIR_IN)
 	{
 		fd = open(node->file_name, O_RDONLY, 0644); // Open file for input
 		if (fd < 0)
-			return (perror("minishell: open"), FAILURE);
+			return (perror("bashy: open"), FAILURE);
 	}
 	if (node->file_type == HERE_DOC_FILE)
 		return (unlink(node->file_name), SUCCESS); // Unlink here-document files

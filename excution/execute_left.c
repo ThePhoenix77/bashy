@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Execute the left child of a command in the syntax tree
 int	execute_left(t_global *global, t_tree *root, int *pipe)
@@ -13,14 +13,14 @@ int	execute_left(t_global *global, t_tree *root, int *pipe)
 			if (root->left->fds.in != -1)
 			{
 				if (dup2(root->left->fds.in, 0) < 0)
-					return (perror("minishell: dup2:"), -1);
+					return (perror("bashy: dup2:"), -1);
 				close(root->left->fds.in); // Close the original fd after duplication
 			}
 			// If there is an output file descriptor, duplicate it to stdout
 			if (root->left->fds.out != -1)
 			{
 				if (dup2(root->left->fds.out, 1) < 0)
-					return (perror("minishell: dup2:"), -1);
+					return (perror("bashy: dup2:"), -1);
 				(close(root->left->fds.out), execute_tree(global, root->left)); // Execute the left child
 				return (close_pipe(pipe), SUCCESS); // Close the pipe and return success
 			}
@@ -28,7 +28,7 @@ int	execute_left(t_global *global, t_tree *root, int *pipe)
 	}
 	// If no redirection, duplicate the write end of the pipe to stdout
 	if (dup2(pipe[1], 1) < 0)
-		return (perror("minishell: dup2:"), -1);
+		return (perror("bashy: dup2:"), -1);
 	close(pipe[1]); // Close the write end of the pipe
 	close(pipe[0]); // Close the read end of the pipe
 	execute_tree(global, root->left); // Execute the left child

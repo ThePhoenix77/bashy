@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Count the number of arguments in the cmd_args linked list
 int	args_arr_size(t_cmd_args *cmd_args)
@@ -29,7 +29,7 @@ void	add_cmd_args(t_global *global, char **cmd_ars, t_cmd_args *cmd_args)
 			cmd_ars[i] = ft_strdup(cmd_args->content); // Duplicate argument content
 			if (!cmd_ars[i]) // Check for successful duplication
 			{
-				perror("minishell: malloc"); // Print error if malloc fails
+				perror("bashy: malloc"); // Print error if malloc fails
 				free_2d_array(&cmd_ars); // Free allocated cmd_ars on error
 				malloc_failed(global); // Handle memory allocation failure
 			}
@@ -71,7 +71,7 @@ char	**get_args_arr(t_global *global, t_cmd_args *cmd_args, t_type_node type)
 // Print an error message for a command not found and exit with status 127
 void	ft_cmd_err(char *cmd)
 {
-	ft_putstr_fd("minishell: ", 2); // Print prefix for error message
+	ft_putstr_fd("bashy: ", 2); // Print prefix for error message
 	ft_putstr_fd(cmd, 2); // Print the command that failed
 	ft_putstr_fd(ERR_CMD_NF, 2); // Print "command not found" error
 	exit(127); // Exit with command not found status

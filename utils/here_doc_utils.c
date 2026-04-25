@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "bashy.h"
 
 char	*gen_file_name(t_global *global)
 {

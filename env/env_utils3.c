@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 /**
  * env_list_size - Computes the size of the environment variable linked list.

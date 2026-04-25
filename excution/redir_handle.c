@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 /**
  * handle_redir_out - Handles output redirection ('>') by opening the file in
@@ -18,7 +18,7 @@ void	handle_redir_out(t_redir *redir, t_fd *fds)
 	// Open the file for writing, create if necessary, and truncate its content
 	fd = open(redir->file_name, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (fd < 0)  // Handle file open failure
-		perror("minishell: open");
+		perror("bashy: open");
 
 	// Close the current output file descriptor if it is already open
 	if (fds->out >= 0)
@@ -46,7 +46,7 @@ void	handle_redir_in(t_redir *redir, t_fd *fds)
 	fd = open(redir->file_name, O_RDONLY);
 	if (fd < 0)  // Handle file open failure and print a custom error message
 	{
-		ft_putstr_fd("minishell: ", 2);
+		ft_putstr_fd("bashy: ", 2);
 		perror(redir->file_name);
 	}
 
@@ -80,7 +80,7 @@ void	handle_dredir_out(t_redir *redir, t_fd *fds)
 	// Open the file for writing in append mode, create if necessary
 	fd = open(redir->file_name, O_WRONLY | O_CREAT | O_APPEND, 0644);
 	if (fd < 0)  // Handle file open failure
-		perror("minishell: open");
+		perror("bashy: open");
 
 	// Close the current output file descriptor if it is already open
 	if (fds->out >= 0)

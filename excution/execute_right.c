@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Duplicate the output file descriptor for the right node
 bool	dup_right_out(t_tree *root)
@@ -6,7 +6,7 @@ bool	dup_right_out(t_tree *root)
 	if (root->right->fds.out != -1) // Check if the output file descriptor is valid
 	{
 		if (dup2(root->right->fds.out, 1) < 0) // Duplicate to standard output
-			return (perror("minishell: dup2:"), FAILURE); // Handle duplication error
+			return (perror("bashy: dup2:"), FAILURE); // Handle duplication error
 		close(root->right->fds.out); // Close the original file descriptor
 	}
 	return (SUCCESS); // Return success
@@ -31,7 +31,7 @@ int	execute_right(t_global *global, t_tree *root, int *pipe)
 				if (root->right->fds.in != -1)
 				{
 					if (dup2(root->right->fds.in, 0) < 0)
-						return (perror("minishell: dup2:"), -1);
+						return (perror("bashy: dup2:"), -1);
 					close(root->right->fds.in); // Close the original input file descriptor
 					execute_tree(global, root->right); // Execute the right node command
 					return (close_pipe(pipe), SUCCESS); // Close the pipe and return success
@@ -42,7 +42,7 @@ int	execute_right(t_global *global, t_tree *root, int *pipe)
 
 	// If no redirection, use the pipe's read end
 	if (dup2(pipe[0], 0) < 0)
-		return (perror("minishell: dup2:"), -1); // Handle duplication error
+		return (perror("bashy: dup2:"), -1); // Handle duplication error
 	close_pipe(global->pipe); // Close the pipe
 	execute_tree(global, root->right); // Execute the right node command
 	return (SUCCESS); // Return success

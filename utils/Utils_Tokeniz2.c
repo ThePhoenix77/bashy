@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 /**
  * check_heredoc_dred - Checks if the current input contains a '<<' (heredoc) 

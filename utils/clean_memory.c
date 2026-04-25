@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "bashy.h"
 
 // Function to free allocated memory associated with the global state.
 void	free_memory(t_global *global)

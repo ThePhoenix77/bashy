@@ -2,6 +2,8 @@
 
 **Bashy** is a fully featured Unix shell written in C, modelled after GNU Bash. It implements a complete pipeline from interactive input reading through lexing, parsing, variable expansion, redirection and process execution, including a built-in suite of seven commands and robust signal handling.
 
+https://github.com/user-attachments/assets/67a65baa-0950-4422-9b7e-628d8f06f7ad
+
 ---
 
 ## Table of Contents
